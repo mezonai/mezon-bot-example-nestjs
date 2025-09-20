@@ -1,6 +1,6 @@
 {
   "name": "mezon-bot-example-nestjs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "author": "Duong Nguyen Dai<hello@mrdnd.dev>",
   "private": false,
@@ -28,7 +28,7 @@
     "@types/joi": "^17.2.3",
     "dotenv": "^16.5.0",
     "joi": "^17.13.3",
-    "mezon-sdk": "^2.7.98",
+    "mezon-sdk": "^2.8.13",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1"
   },
