@@ -16,9 +16,9 @@ export class MezonModule {
           provide: MezonClientService,
           useFactory: async (configService: ConfigService) => {
             const clientConfig: MezonClientConfig = {
+              botId: configService.get<string>('BOT_ID') ?? '',
               token: configService.get<string>('MEZON_TOKEN') ?? '',
             };
-
             const client = new MezonClientService(clientConfig);
 
             await client.initializeClient();
