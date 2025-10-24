@@ -26,19 +26,13 @@ export class ChannelMessageEventHandler {
         return;
       }
       // reply mentioned only
-      if ((!message.mentions || !message.mentions.length) && message.mentions?.findIndex(m => m.user_id == BOT_ID?.toString()) === -1) {
+      if (message.mentions?.findIndex(s => s.user_id === BOT_ID)) {
         return;
       }
-
-      this.client.channels
-        .fetch(message.channel_id)
-        .then((channel) => {
-          channel.messages.fetch(message.id).then((msg) => {
-            msg.reply({
-              t: this.getRandomMessage(),  
-            })  
-          })
-        })
+      const channel = this.client.channels.get(message.channel_id);
+      await channel?.messages.get(message.id)?.reply({
+        t: this.getRandomMessage()
+      });
     } catch (error) {
       console.log(error);
     }
